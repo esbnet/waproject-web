@@ -8,11 +8,10 @@ A Aplicação consome uma API Rest através de três end-ponts e disponibiliza i
 
 ## Principais Tech'S
 
-* Express - Prover as rotas da API
-* Axios - Acessar a API externa
-* Prisma - Gravar e recuperar dados
+* React JS - Linguagem de Programação
 * Typescript - Melhorar a legibilidade, a produtividade e a segurança do código
-* Swagger (swagger-ui-express) - Documentar a API
+* React-paginate - Bibliote para realizar a paginação de uma colection
+* Tailwindcss - Biblioteca de estilização
 
 ## Implantação e Execução
 
