@@ -7,18 +7,20 @@ import {
 
 import './App.css'
 
+const URL_API = "http://localhost:9000/v1/movies";
+
 function App() {
     const [movies, setMovies] = useState([])
 
     const fetchData = async () => {
-        const result = await fetch(`http://localhost:9000/v1/movies/`)
+        const result = await fetch(URL_API + "/")
             .then(response => response.json())
         setMovies(result);
         return
     }
 
     const fetchLoad = async () => {
-        const result = await fetch('http://localhost:9000/v1/movies/load')
+        const result = await fetch(URL_API + '/load')
             .then(response => response.json())
         alert("Dados dos filmes da API externa fora carregadas na base da aplicação.")
         fetchData();
