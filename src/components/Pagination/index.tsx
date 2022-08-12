@@ -12,7 +12,7 @@ export default function Player(props) {
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-    const itemsPerPage = 6;
+    const [itemsPerPage, setItemsPerPage] = useState(2);
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
@@ -28,6 +28,7 @@ export default function Player(props) {
         // );
         setItemOffset(newOffset);
     };
+
 
     return (
         <>
@@ -48,21 +49,35 @@ export default function Player(props) {
                     })
                 }
             </div>
-            <ReactPaginate
-                breakLabel="..."
-                nextLabel=" >"
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={3}
-                pageCount={pageCount}
-                previousLabel="< "
-                //@ts-ignore
-                renderOnZeroPageCount={null}
-                containerClassName="pagination"
-                pageLinkClassName='page-num'
-                previousLinkClassName='page-num'
-                nextLinkClassName='page-num'
-                activeLinkClassName='active'
-            />
+            <div className="flex flex-col content-center items-center">
+                <div className='flex flex-row gap-2' >
+                    <div className="pagination " title='Itens por página'>
+                        <select className='page-num-select' name="" id="" onChange={e => setItemsPerPage(Number(e.target.value))}>
+                            <option value="2" selected>2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel=" >"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={3}
+                        pageCount={pageCount}
+                        previousLabel="< "
+                        //@ts-ignore
+                        renderOnZeroPageCount={null}
+                        containerClassName="pagination"
+                        pageLinkClassName='page-num'
+                        previousLinkClassName='page-num'
+                        nextLinkClassName='page-num'
+                        activeLinkClassName='active'
+                    />
+                </div>
+            </div>
         </>
     );
 }
