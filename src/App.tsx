@@ -43,10 +43,13 @@ function App() {
             </div>
             {
                 isLoad ? (
-                    <button type="button" className="bg-indigo-500 ..." disabled>
-                        <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />
-                        Loading...
-                    </button>) :
+                    <div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
+                        <button type="button" className="bg-indigo-500 ..." disabled>
+                            <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />
+                            Loading...
+                        </button>
+                    </div>
+                ) :
                     (movies.length > 0 ? <Player data={movies} /> :
                         (<div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
                             <h1>Não existe filmes na base de dados...</h1>
