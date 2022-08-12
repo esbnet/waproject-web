@@ -7,7 +7,7 @@ import {
 
 import './App.css'
 
-const URL_API = "http://localhost:9000/v1/movies";
+const URL_API = "https://esbnetwaproject.herokuapp.com//v1/movies";
 
 function App() {
     const [movies, setMovies] = useState([])
