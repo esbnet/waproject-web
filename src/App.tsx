@@ -14,17 +14,16 @@ function App() {
     const [isLoad, setIsLoad] = useState(true);
 
     const fetchData = async () => {
-        const result = await fetch(URL_API + "/")
-            .then(response => response.json())
+        const result = await fetch(URL_API + "/").then(response => response.json())
         setMovies(result);
         setIsLoad(false);
         return
     }
 
     const fetchLoad = async () => {
-        const count = await fetch(URL_API + "/count")
+        const result = await fetch(URL_API + "/count").then((response) => response.json());
 
-        if (Number(count) < 100) {
+        if (Number(result.count) < 100) {
             await fetch(URL_API + '/load')
                 .then(response => response.json())
             alert("Dados dos filmes da API externa fora carregadas na base da aplicação.")
