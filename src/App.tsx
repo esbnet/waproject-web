@@ -14,22 +14,22 @@ function App() {
     const [isLoad, setIsLoad] = useState(true);
 
     const fetchData = async () => {
-        const count = await fetch(URL_API + "/count")
-
-        if (Number(count) < 100) {
-            const result = await fetch(URL_API + "/")
-                .then(response => response.json())
-            setMovies(result);
-            setIsLoad(false);
-        }
+        const result = await fetch(URL_API + "/")
+            .then(response => response.json())
+        setMovies(result);
+        setIsLoad(false);
         return
     }
 
     const fetchLoad = async () => {
-        const result = await fetch(URL_API + '/load')
-            .then(response => response.json())
-        alert("Dados dos filmes da API externa fora carregadas na base da aplicação.")
-        fetchData();
+        const count = await fetch(URL_API + "/count")
+
+        if (Number(count) < 100) {
+            await fetch(URL_API + '/load')
+                .then(response => response.json())
+            alert("Dados dos filmes da API externa fora carregadas na base da aplicação.")
+            fetchData();
+        }
         return
     }
 
