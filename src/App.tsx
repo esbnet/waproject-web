@@ -14,10 +14,14 @@ function App() {
     const [isLoad, setIsLoad] = useState(true);
 
     const fetchData = async () => {
-        const result = await fetch(URL_API + "/")
-            .then(response => response.json())
-        setMovies(result);
-        setIsLoad(false);
+        const count = await fetch(URL_API + "/count")
+
+        if (Number(count) < 100) {
+            const result = await fetch(URL_API + "/")
+                .then(response => response.json())
+            setMovies(result);
+            setIsLoad(false);
+        }
         return
     }
 
@@ -50,8 +54,8 @@ function App() {
                     </div>
                 ) :
                     (movies.length > 0 ? <Player data={movies} /> :
-                        (<div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
-                            <h1>Não existe filmes na base de dados...</h1>
+                        (<div className="container mx-auto px-4 py-4 mt-6 text-center shadow-lg font-roboto-bold text-2xl">
+                            <h1>Não existem filmes na base de dados...</h1>
                         </div>
                         )
                     )
