@@ -40,9 +40,17 @@ function App() {
         <div className=''>
             <div className="mx-auto px-4 py-4 text-center text-[#fff] bg-gradient-to-r from-indigo-800  to-indigo-500  bg-[#2965C8] shadow-lg font-roboto-bold text-4xl text">
                 WA Filmes
+
                 <button onClick={fetchLoad} className="float-right " title='Carrega dados da API externa' >
                     <CloudDownloadIcon className='w=10 h-10 p-2 shadow-lg bg-blue rounded-full hover:bg-purple' />
                 </button>
+                {movies.length <= 0 ?
+                    (<span className="flex h-3 w-3 float-right rounded-full bg-yellow mb-2 mr-[-10px] border-1" >
+                        <span className="animate-ping relative inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+                    </span>)
+                    : ''
+                }
+
             </div>
             {
                 isLoad ? (
@@ -59,7 +67,7 @@ function App() {
                         )
                     )
             }
-        </div>
+        </div >
     )
 }
 
