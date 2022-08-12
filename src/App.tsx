@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Player from './components/Pagination';
 
 import {
-    CloudDownloadIcon
+    CloudDownloadIcon, 
 } from '@heroicons/react/solid'
 
 import './App.css'
@@ -45,7 +45,9 @@ function App() {
                 isLoad ? (
                     <div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
                         <button type="button" className="bg-indigo-500 ..." disabled>
-                            <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />
+                            <div className="h-12 w-12 border-4 border-l-gray-light border-r-gray-light border-b-gray-light border-t-blue animate-spin ease-linear ">
+
+                            </div>
                             Loading...
                         </button>
                     </div>
