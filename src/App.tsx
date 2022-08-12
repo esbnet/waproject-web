@@ -10,12 +10,14 @@ import './App.css'
 const URL_API = "https://esbnetwaproject.herokuapp.com/v1/movies";
 
 function App() {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [isLoad, setIsLoad] = useState(true);
 
     const fetchData = async () => {
         const result = await fetch(URL_API + "/")
             .then(response => response.json())
         setMovies(result);
+        setIsLoad(false);
         return
     }
 
@@ -39,11 +41,18 @@ function App() {
                     <CloudDownloadIcon className='w=10 h-10 p-2 shadow-lg bg-blue rounded-full hover:bg-purple' />
                 </button>
             </div>
-            {movies.length > 0 ? <Player data={movies} /> :
-                (<div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
-                    <h1>Não existe filmes na base de dados...</h1>
-                </div>
-                )
+            {
+                isLoad ? (
+                    <button type="button" className="bg-indigo-500 ..." disabled>
+                        <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />
+                        Loading...
+                    </button>) :
+                    (movies.length > 0 ? <Player data={movies} /> :
+                        (<div className="container mx-auto px-4 py-4 text-center shadow-lg font-roboto-bold text-2xl">
+                            <h1>Não existe filmes na base de dados...</h1>
+                        </div>
+                        )
+                    )
             }
         </div>
     )
