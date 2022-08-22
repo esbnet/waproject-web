@@ -10,7 +10,7 @@ import './style.css'
 
 export default function Card(props: Movie) {
     return (
-        <div className='image p-2' >
+        <div className='image p-2 hover:cursor-pointer hover:drop-shadow-2xl hover:border-2' >
             <img className='object-cover' src={props.movie_banner} alt={props.title} />
             <div className="flex flex-col text-orange">
                 <div className="flex flex-row content-center items-center text-sm truncate" >

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Player from './components/Pagination';
+import Player from './components/Player';
 
 import {
     CloudDownloadIcon,
