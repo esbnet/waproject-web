@@ -52,5 +52,5 @@ Para realizar a carga dos animes no banco de dados clique no ícone no canto sup
 
 ![Tela da documentação da API](./src/assets/images/load_data.png)
 
-Api: <https://github.com/esbnet/waproject-web>
+Api: <https://github.com/esbnet/waproject-server>
 
